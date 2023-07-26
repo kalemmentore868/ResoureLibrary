@@ -1,0 +1,75 @@
+/* Add appropriate styles to the item container */
+.item-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+/* Style the image container */
+.image-container {
+    margin-right: 30px;
+}
+
+    /* Style the image */
+    .image-container img {
+        width: 200px; /* Adjust the width as needed */
+        height: 200px;
+        object-fit: cover;
+    }
+
+/* Style the info container */
+.info-container {
+    flex: 1;
+}
+
+/* Style the item name */
+.item-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #1f4574;
+}
+
+/* Style the item description */
+.item-description {
+    margin-top: 10px;
+    color: black;
+}
+
+.item-created-date{
+    color: gray;
+
+}
+
+.read-more {
+    background-color: #1f4574;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+    .read-more:hover {
+        text-decoration: none;
+        transform: scale(1.1);
+        transition: all 0.3s ease-in-out;
+        color: white;
+    }
+
+
+/* Style the edit and delete links (if visible) */
+.edit-delete-links {
+    margin-top: 10px;
+}
+
+    .edit-delete-links a {
+        margin-right: 10px;
+        color: blue; /* You can choose your desired color */
+    }
+
+.filter-form{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+}

@@ -1,0 +1,83 @@
+﻿@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<Christoc.Modules.ResoureLibrary.Models.Item>
+
+@using System.Collections.Generic
+@using DotNetNuke.Web.Mvc.Helpers
+
+<div id="Item-@Dnn.ModuleContext.ModuleId">
+    <div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
+        <div class="dnnFormExpandContent dnnRight "><a href="#">@Dnn.LocalizeString("ExpandAll")</a></div>
+
+        <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
+            <a href="#" class="dnnSectionExpanded">@Dnn.LocalizeString("BasicSettings")</a>
+        </h2>
+        <fieldset>
+            <div class="dnnFormItem">
+                <div><label for="itemName">@Dnn.LocalizeString("lblName")</label></div>
+                @Html.TextBoxFor(m => m.ItemName)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemDescription">Short Description</label></div>
+                @Html.TextAreaFor(m => m.ItemDescription)
+            </div>
+
+            <div class="dnnFormItem">
+                <div><label for="itemLongDescription">Long Description</label></div>
+                @Html.TextAreaFor(m => m.ItemLongDescription)
+            </div>
+
+            <div class="dnnFormItem">
+                <div><label for="itemUser">@Dnn.LocalizeString("lblAssignedUser")</label></div>
+                @Html.DropDownListFor(m => m.AssignedUserId, (IEnumerable<SelectListItem>)ViewBag.Users, "Choose...")
+            </div>
+
+            <!-- New fields for the additional properties -->
+            <div class="dnnFormItem">
+                <div><label for="itemCategories">Categories</label></div>
+                @Html.TextBoxFor(m => m.Categories)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemResourceType">Resource Type</label></div>
+                @Html.DropDownListFor(m => m.ResourceType, (IEnumerable<SelectListItem>)ViewBag.ResourceTypes, "Select Resource Type")
+            </div>
+
+
+
+            <div class="dnnFormItem">
+                <div><label for="itemTags">Tags</label></div>
+                @Html.TextBoxFor(m => m.Tags)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemImgUrl">Image URL</label></div>
+                @Html.TextBoxFor(m => m.ImgUrl)
+            </div>
+            <div class="dnnFormItem">
+                <div><label for="itemFileUrl">File URL</label></div>
+                @Html.TextBoxFor(m => m.FileUrl)
+            </div>
+            <!-- End of new fields -->
+
+            @Html.HiddenFor(m => m.ModuleId)
+        </fieldset>
+    </div>
+    <button type="submit" class="dnnPrimaryAction">@Dnn.LocalizeString("Submit")</button>
+    <a id="cancelEdit" href="#" class="dnnSecondaryAction">@Dnn.LocalizeString("Cancel")</a>
+</div>
+
+<script type="text/javascript">
+    /*globals jQuery, window, Sys */
+    (function($, Sys) {
+        function dnnEditBasicSettings() {
+            $('#dnnEditBasicSettings').dnnPanels();
+            $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '@Dnn.LocalizeString("ExpandAll")', collapseText: '@Dnn.LocalizeString("CollapseAll")', targetArea: '#dnnEditBasicSettings' });
+        }
+
+        $(function() {
+            $('#cancelEdit').click(function() { dnnModal.closePopUp(false); });
+            dnnEditBasicSettings();
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function() {
+                dnnEditBasicSettings();
+            });
+        });
+
+    }(jQuery, window.Sys));
+</script>

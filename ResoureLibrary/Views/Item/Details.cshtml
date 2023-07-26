@@ -1,0 +1,20 @@
+@inherits DotNetNuke.Web.Mvc.Framework.DnnWebViewPage<Christoc.Modules.ResoureLibrary.Models.Item>
+
+@using System.Text.RegularExpressions
+@using DotNetNuke.Web.Mvc.Helpers
+
+<div class="details-page">
+    <hl2 class="dp-header">@Model.ItemName</hl2>
+    <div>
+        <img src="@Model.ImgUrl" alt="@Model.ItemName" class="dp-img" />
+    </div>
+    <div class="text-container">
+        <div class="dp-sidebar">
+            <div class="socials">
+                <h3>Share</h3>
+            </div>
+        </div>
+        <p>@Model.ItemLongDescription</p>
+
+    </div>
+</div>
