@@ -84,7 +84,7 @@ namespace Christoc.Modules.ResoureLibrary.Models
 
         // Additional properties to match the SQL table
         ///<summary>
-        /// A string with the categories associated with the item
+        /// A string with the reaoursce type associated with the item
         ///</summary>
         public string ResourceType { get; set; }
 

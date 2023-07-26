@@ -10,26 +10,28 @@
         <form method="get" action="@Url.Action("Index", "Item")">
             <div class="filter-form">
                 <div class="search-input">
-                    <input type="text" name="searchTerm" placeholder="Search by Name, Category, or Tags" />
+                    <input type="text" name="searchTerm" placeholder="Search by Name, Category, or Tags" value="@ViewBag.SearchTerm"  />
 
                 </div>
                 <div class="dropdown-input">
-                   
+
                     <select name="mediaType" id="mediaType">
                         <option value="">All Media Types</option>
-                        <option value="pdf">PDF</option>
-                        <option value="word doc">Word Doc</option>
-                        <option value="external article">External Article</option>
-                        <option value="internal article">Internal Article</option>
+                        <option value="pdf" @(ViewBag.MediaType == "pdf" ? "selected" : "")>PDF</option>
+                        <option value="word doc" @(ViewBag.MediaType == "word doc" ? "selected" : "")>Word Doc</option>
+                        <option value="external article" @(ViewBag.MediaType == "external article" ? "selected" : "")>External Article</option>
+                        <option value="internal article" @(ViewBag.MediaType == "internal article" ? "selected" : "")>Internal Article</option>
                     </select>
+
                 </div>
                 <div class="dropdown-input">
-                 
+
                     <select name="sortBy" id="sortBy">
-                        <option value="relevance">Relevance</option>
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
+                        <option value="relevance" @(ViewBag.SortBy == "relevance" ? "selected" : "")>Relevance</option>
+                        <option value="newest" @(ViewBag.SortBy == "newest" ? "selected" : "")>Newest</option>
+                        <option value="oldest" @(ViewBag.SortBy == "oldest" ? "selected" : "")>Oldest</option>
                     </select>
+
                 </div>
 
                 <input type="submit" value="Search" />
@@ -37,6 +39,7 @@
             
          
         </form>
+
    
 
 

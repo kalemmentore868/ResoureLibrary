@@ -139,6 +139,10 @@ namespace Christoc.Modules.ResoureLibrary.Controllers
                 items = items.OrderBy(item => item.CreatedOnDate);
             }
 
+            ViewBag.SearchTerm = searchTerm;
+            ViewBag.MediaType = mediaType;
+            ViewBag.SortBy = sortBy;
+
             return View(items);
         }
 
