@@ -34,7 +34,7 @@
 
                 </div>
 
-                <input type="submit" value="Search" />
+                <input type="submit" value="Search" class="submit-btn" />
             </div>
             
          
@@ -56,10 +56,12 @@
                     <div class="item-container">
                         <div class="image-container">
                             <!-- Add the image here. Replace 'item.ImgUrl' with the actual property holding the image URL -->
-                            <img src="@item.ImgUrl" alt="@item.ItemName" />
+                        <a href="@Url.Action("Details", "Item", new { itemId = item.ItemId })"><img src="@item.ImgUrl" alt="@item.ItemName" /></a>    
                         </div>
                         <div class="info-container">
-                            <h3 class="item-name">@item.ItemName</h3>
+                            <h3 class="item-name">
+                                <a href="@Url.Action("Details", "Item", new { itemId = item.ItemId })"> @item.ItemName</a>  
+                            </h3>
                             <div class="item-created-date">@item.CreatedOnDate.ToString("MMMM dd, yyyy")</div>
                             <div class="item-description">
                                 @item.ItemDescription
